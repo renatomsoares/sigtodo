@@ -10,4 +10,5 @@ public interface ITaskDAO {
 	public void deleteTask(Task task);
 	public void editTask(Task task);
 	public List<Task> taskList();
+	public Task findTask(Task task);
 }

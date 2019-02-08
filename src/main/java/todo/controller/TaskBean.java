@@ -70,4 +70,9 @@ public class TaskBean {
 		 service.deleteTask(task);
 		 return "taskList";
 	 }
+	 
+	 public String updateTaskStatus(Task task) {
+		 service.updateTaskStatus(task);
+		 return "taskList";
+	 }
 }

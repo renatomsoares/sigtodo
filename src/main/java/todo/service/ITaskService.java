@@ -10,5 +10,6 @@ public interface ITaskService {
 	public void deleteTask(Task task);
 	public void editTask(Task task);
 	public List<Task> taskList();
+	public void updateTaskStatus(Task task);
 }
 

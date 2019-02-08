@@ -58,4 +58,8 @@ public class TaskDAO implements ITaskDAO {
 		List<Task> taskList = (List<Task>)em.createQuery("From Task").getResultList();
 		return taskList;
 	}
+	
+	public Task findTask(Task task) {
+		return em.find(Task.class, task.getId());
+	}
 }
