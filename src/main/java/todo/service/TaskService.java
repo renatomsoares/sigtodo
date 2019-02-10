@@ -18,8 +18,7 @@ import todo.model.Task;
 @Service
 public class TaskService implements ITaskService {
 
-	@Inject
-	private ITaskDAO dao;
+	private ITaskDAO dao = new TaskDAO();
 
 	@Override
 	public void insertTask(Task task) {

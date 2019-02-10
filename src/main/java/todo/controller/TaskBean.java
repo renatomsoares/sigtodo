@@ -1,27 +1,40 @@
 package todo.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.ContextLoader;
+
+import com.google.gson.Gson;
 
 import todo.model.Task;
 import todo.service.ITaskService;
 import todo.service.TaskService;
 
-@Named
-@Scope("session")
+@Controller
+@RequestMapping(value = "/hello")
 public class TaskBean {
 
 	private Task task;
+	private Gson gson = new Gson();
 
 	@Inject
 	private ITaskService service;
@@ -81,4 +94,5 @@ public class TaskBean {
 		service.updateTaskStatus(task);
 		return "taskList";
 	}
+
 }
