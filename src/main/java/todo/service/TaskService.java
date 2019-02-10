@@ -7,13 +7,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
 import todo.dao.ITaskDAO;
 import todo.dao.TaskDAO;
 import todo.model.Task;
 
+@Service
 public class TaskService implements ITaskService {
 
-	ITaskDAO dao = new TaskDAO();
+	@Inject
+	private ITaskDAO dao;
 
 	@Override
 	public void insertTask(Task task) {

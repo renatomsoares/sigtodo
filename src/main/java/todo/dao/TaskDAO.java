@@ -6,9 +6,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import todo.infra.EntityManagerConnection;
 import todo.model.Task;
 
+@Repository
 public class TaskDAO implements ITaskDAO {
 
 	EntityManager em = EntityManagerConnection.getInstance();
