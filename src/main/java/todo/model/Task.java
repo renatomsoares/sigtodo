@@ -27,6 +27,15 @@ public class Task{
 	@Column(nullable=false)
 	private Date registerDate;
 
+	
+	public Task() {
+		
+	}
+	
+	public Task(String description) {
+		this.description = description;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,7 +67,6 @@ public class Task{
 	public void setRegisterDate(Date date) {
 		this.registerDate = date;
 	}
-	
 	
 	@PrePersist
 	void preInsert() {

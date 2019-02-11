@@ -10,7 +10,7 @@ export default class EditTask extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      task_description: 'renato',
+      task_description: '',
     }
   }
 
