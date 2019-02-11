@@ -58,12 +58,13 @@ public class TaskAPI extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
-		request.getHeaderNames();
+		System.out.println(Long.valueOf(request.getParameter("task_id")).longValue());
 		this.taskService.deleteTask(Long.valueOf(request.getParameter("task_id")).longValue());
 	}
 	
 	@Override
 	  protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		setAccessControlHeaders(response);
 		Task editedTask = this.taskService.findTask(Long.valueOf(request.getParameter("task_id")).longValue());
 		editedTask.setDescription(request.getParameter("task_description"));
 		this.taskService.editTask(editedTask);
@@ -72,9 +73,6 @@ public class TaskAPI extends HttpServlet {
 
 	private void setAccessControlHeaders(HttpServletResponse resp) {
 		resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-		resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-		resp.setHeader("Access-Control-Max-Age", "3600");
-		resp.setHeader("Access-Control-Allow-Headers", "Content-Type, Origin, Cache-Control, X-Requested-With");
-		resp.setHeader("Access-Control-Allow-Credentials", "true");
+		resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
 	}
 }
