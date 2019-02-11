@@ -7,8 +7,8 @@ import todo.model.Task;
 public interface ITaskDAO {
 	
 	public void insertTask(Task task);
-	public void deleteTask(Task task);
+	public void deleteTask(Long id);
 	public void editTask(Task task);
 	public List<Task> taskList();
-	public Task findTask(Task task);
+	public Task findTask(Long id);
 }

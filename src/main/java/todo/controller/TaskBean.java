@@ -30,11 +30,9 @@ import todo.service.ITaskService;
 import todo.service.TaskService;
 
 @Controller
-@RequestMapping(value = "/hello")
 public class TaskBean {
 
 	private Task task;
-	private Gson gson = new Gson();
 
 	@Inject
 	private ITaskService service;
@@ -86,7 +84,7 @@ public class TaskBean {
 	}
 
 	public String deleteTask(Task task) {
-		service.deleteTask(task);
+		service.deleteTask(task.getId());
 		return "taskList";
 	}
 

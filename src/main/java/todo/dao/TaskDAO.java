@@ -29,19 +29,16 @@ public class TaskDAO implements ITaskDAO {
 		}
 	}
 
-
-	public void deleteTask(Task task){
+	public void deleteTask(Long id){
 		try {
 			em.getTransaction().begin();
-			em.remove(task);
+			em.remove(em.find(Task.class, id));
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 	}
-
-
 
 	public void editTask(Task task){
 		try {
@@ -56,11 +53,11 @@ public class TaskDAO implements ITaskDAO {
 
 	public List<Task> taskList() {
 
-		List<Task> taskList = (List<Task>)em.createQuery("From Task").getResultList();
+		List<Task> taskList = (List<Task>)em.createQuery("From Task order by registerDate").getResultList();
 		return taskList;
 	}
 	
-	public Task findTask(Task task) {
-		return em.find(Task.class, task.getId());
+	public Task findTask(Long id) {
+		return em.find(Task.class, id);
 	}
 }

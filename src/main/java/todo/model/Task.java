@@ -1,8 +1,7 @@
 package todo.model;
 
+import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +25,7 @@ public class Task{
 	private Boolean completedTask;
 	
 	@Column(nullable=false)
-	private String registerDate;
+	private Date registerDate;
 
 	public Long getId() {
 		return id;
@@ -52,12 +51,12 @@ public class Task{
 		this.completedTask = completedTask;
 	}
 	
-	public String getRegisterDate() {
+	public Date getRegisterDate() {
 		return registerDate;
 	}
 	
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
+	public void setRegisterDate(Date date) {
+		this.registerDate = date;
 	}
 	
 	

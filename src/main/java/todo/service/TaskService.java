@@ -1,13 +1,8 @@
 package todo.service;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-
-import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
@@ -23,13 +18,13 @@ public class TaskService implements ITaskService {
 	@Override
 	public void insertTask(Task task) {
 		TimeZone.setDefault(TimeZone.getTimeZone("GMT-3"));
-		task.setRegisterDate(new SimpleDateFormat().format(new Date()));
+		task.setRegisterDate(new Date());
 		dao.insertTask(task);
 	}
 	
 	@Override
-	public void deleteTask(Task task) {
-		dao.deleteTask(task);	
+	public void deleteTask(Long id) {
+		dao.deleteTask(id);	
 	}
 
 	@Override
@@ -51,5 +46,11 @@ public class TaskService implements ITaskService {
 		
 		this.editTask(task);
 		
+	}
+
+	@Override
+	public Task findTask(Long id) {
+
+		return dao.findTask(id);
 	}
 }
