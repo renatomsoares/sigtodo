@@ -5,12 +5,14 @@ import TaskRow from './taskRow.component';
 
 export default class Index extends Component {
 
+
+
   constructor(props) {
       super(props);
       this.state = {tasks: []};
     }
     componentDidMount(){
-      axios.get('http://localhost:8081/JavaServerFaces/api/task')
+      axios.get('http://localhost:8081/SIGTodo/api/task')
         .then(response => {
           this.setState({ tasks: response.data });
         })
@@ -33,8 +35,11 @@ export default class Index extends Component {
           <table className="table table-striped" style={{ marginTop: 20 }}>
             <thead>
               <tr>
+                <th>Data de Cadastro</th>
+                <th>Feito?</th>
                 <th>Descrição</th>
                 <th colSpan="2">Ações</th>
+                
               </tr>
             </thead>
             <tbody>

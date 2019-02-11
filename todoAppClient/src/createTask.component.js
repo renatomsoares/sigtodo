@@ -28,13 +28,13 @@ export default class CreateTask extends Component {
 
     axios({
         method: 'post',
-        url: 'http://localhost:8081/JavaServerFaces/api/task',
+        url: 'http://localhost:8081/SIGTodo/api/task',
         data: bodyFormData,
         config: { headers: {'Content-Type': 'multipart/form-data' }}
         })
         .then(function (response) {
-            //handle success
-            console.log(response);
+          window.location.href = 'http://localhost:3000/index'
+          console.log(response);
         })
         .catch(function (response) {
             //handle error
@@ -45,6 +45,8 @@ export default class CreateTask extends Component {
       task_description: '',
     })
   }
+  
+
  
   render() {
     return (
